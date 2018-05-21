@@ -1,5 +1,5 @@
-from gamesapi_por_fazer.games.models import GameCategory
-from gamesapi_por_fazer.games.serializers import GameCategorySerializer
+from .models import GameCategory
+from .serializers import GameCategorySerializer
 
 
 class GameCategoryMixin:

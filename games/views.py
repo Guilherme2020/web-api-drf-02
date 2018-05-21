@@ -9,7 +9,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from gamesapi_por_fazer.games.mixins import GameCategoryMixin
+from .mixins import GameCategoryMixin
 from .models import Game, GameCategory, Player, Score
 from .serializers import GameSerializer, GameCategorySerializer, PlayerSerializer, ScoreSerializer
 
