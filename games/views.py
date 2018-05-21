@@ -9,6 +9,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
+from gamesapi_por_fazer.games.mixins import GameCategoryMixin
 from .models import Game, GameCategory, Player, Score
 from .serializers import GameSerializer, GameCategorySerializer, PlayerSerializer, ScoreSerializer
 
@@ -59,14 +60,11 @@ class ApiRoot(generics.GenericAPIView):
 			'score': reverse(ScoreList.name,request=request)
 		})
 
-class GameCategoryList(generics.ListCreateAPIView):
-	queryset = GameCategory.objects.all()
-	serializer_class = GameCategorySerializer
+class GameCategoryList(generics.ListCreateAPIView,GameCategoryMixin):
+
 	name = 'gamecategory-list'
 
-class GameCategoryDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = GameCategory.objects.all()
-	serializer_class = GameCategorySerializer
+class GameCategoryDetail(generics.RetrieveUpdateDestroyAPIView,GameCategoryMixin):
 	name = 'gamecategory-datail'
 
 class GameList(generics.ListCreateAPIView):
